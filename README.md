@@ -16,12 +16,12 @@ Install requirements:
 
 `$ python3 -m pip install -r requirements.txt`
 
-## Before and after tasks
+## Coding tasks
 
 - Make a branch for your solutions.
 - Commit and push your local changes to the remote repository.
 
-## Task 1 - File parsing
+### Coding task 1 - file parsing
 
 Using the `csv` module, read the contents of `files.txt` and print a list of the filtered FastQ and BAM files and their total size.
 
@@ -40,7 +40,7 @@ Notes:
 - there are comments starting with `#`
 - there blank lines
 
-## Task 2 - API call
+### Coding task 2 - API call
 
 Using the `requests` module, make an API call to https://api.quotable.io/quotes (see: https://github.com/lukePeavey/quotable)
 
@@ -61,6 +61,59 @@ The expected output of `python3 task2.py` is:
 
 ```
 
-## Task 3 - Bioinformatics
+## Bioinformatics tasks
 
-Edmund?!
+Run `docker run --rm -it edmundlth/bioinf_tech_interview:latest`, this will download and run a docker container in interactive mode. 
+`python3` and `samtools` are installed in this container.
+
+Running in this mode, there are some programs like text editors that are not accessible. So the Python task should just be written and run in Python interactive mode within the container as well. 
+
+Please note that these are contrived tasks to test your ability to understand and use existing tools. There might be alternative methods you can think of that do not involve the tools suggested, but we encourage that you read and understand the documentations of the tools (if you aren’t already familiar with them). 
+
+### Bioinformatics task 1
+
+Question: Which tag in the BAM file header gives a record of programs that have been run on the BAM file? 
+
+Extract the corresponding program records of the provided BAM file into a plain text file. 
+
+Commands to use: 
+- `samtools view`
+- `grep`
+
+References:
+- SAM / BAM file format reference: https://samtools.github.io/hts-specs/SAMv1.pdf
+
+### Bioinformatics task 2
+
+Suppose those programs are industry secrets (they aren’t) and we would like to remove them. 
+In this task, we would like to produce a new BAM file that is identical to the old one except it will have no @PG tag. 
+
+Commands to use: 
+- `samtools view`
+- `grep -v` 
+- `samtools reheader`
+
+References:
+- SAMtools documentation: http://www.htslib.org/doc/samtools.html
+
+
+### Bioinformatics task 3
+
+Use Python to create a BED file with each row being a 1 million base pair window of chromosome 1 of the human genome (hg19). The regions in the BED file should jointly cover the chromosome. 
+
+Hints:
+- BED files are 0-indexed. 
+- Use the `chr` prefix in the BED file chromosome name. 
+- Chromosome 1 has <250 million base pairs. 
+
+References:
+- BED file format: http://genome.ucsc.edu/FAQ/FAQformat#format1
+- SAMtools documentation: http://www.htslib.org/doc/samtools.html
+
+Find out the total coverage for each of the regions defined above. 
+
+Commands to use: 
+- `samtools sort`
+- `samtools index`
+- `samtools bedcov`
+

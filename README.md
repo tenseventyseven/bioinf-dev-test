@@ -7,6 +7,7 @@ There are three tasks to complete within the hour.  Use Google and ask questions
 Clone this repo:
 
 `$ git clone https://github.com/tenseventyseven/bioinf-dev-test.git`
+
 `$ cd bioinf-dev-test`
 
 Create a virtual environment:

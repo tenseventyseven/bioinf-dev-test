@@ -104,7 +104,7 @@ References:
 
 Use Python to create a BED file with each row being a 1 million base pair window of chromosome 1 of the human genome (hg19). The regions in the BED file should jointly cover the chromosome.
 
-Since the docker container is volume mounted you can edit `bioinf_task3.py` locally and run it locally and in the container as `python3 bioinfo_task3.py`.
+Since the docker container is volume mounted you can edit `bioinf_task3.py` locally and run it locally and in the container as `python3 bioinf_task3.py`.
 
 Hints:
 - BED files are 0-indexed. 

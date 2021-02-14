@@ -4,6 +4,11 @@ There are three tasks to complete within the hour.  Use Google and ask questions
 
 ## Initial setup
 
+Clone this repo:
+
+`$ git clone https://github.com/tenseventyseven/bioinf-dev-test.git`
+`$ cd bioinf-dev-test`
+
 Create a virtual environment:
 
 `$ python3 -m venv venv`
@@ -25,7 +30,7 @@ Install requirements:
 
 Using the `csv` module, read the contents of `files.txt` and print a list of the filtered FastQ and BAM files and their total size.
 
-The expected output of `python3 task1.py` is:
+The expected output of `python3 coding_task1.py` is:
 
 ```
 FastQ filenames: ['204007381_LA.204007381_LA_0_filtered_R1.fastq.gz', '204007381_LA.204007381_LA_0_filtered_R2.fastq.gz'], total bytes: 302509058
@@ -46,7 +51,7 @@ Using the `requests` module, make an API call to https://api.quotable.io/quotes 
 
 Get 5 quotes tagged wisdom" or "happiness" and print out the quotes and their author.
 
-The expected output of `python3 task2.py` is:
+The expected output of `python3 coding_task2.py` is:
 
 ```
 1. Wisdom is a kind of knowledge. It is knowledge of the nature, career, and consequences of human values. -- Sidney Hook
@@ -63,10 +68,7 @@ The expected output of `python3 task2.py` is:
 
 ## Bioinformatics tasks
 
-Run `docker run --rm -it edmundlth/bioinf_tech_interview:latest`, this will download and run a docker container in interactive mode. 
-`python3` and `samtools` are installed in this container.
-
-Running in this mode, there are some programs like text editors that are not accessible. So the Python task should just be written and run in Python interactive mode within the container as well. 
+Run `docker run --rm -v $PWD:/home -it edmundlth/bioinf_tech_interview:latest`, this will download and run a docker container in interactive mode with your current directory volume mounted.  `python3` and `samtools` are installed in this container.
 
 Please note that these are contrived tasks to test your ability to understand and use existing tools. There might be alternative methods you can think of that do not involve the tools suggested, but we encourage that you read and understand the documentations of the tools (if you aren’t already familiar with them). 
 
@@ -99,7 +101,9 @@ References:
 
 ### Bioinformatics task 3
 
-Use Python to create a BED file with each row being a 1 million base pair window of chromosome 1 of the human genome (hg19). The regions in the BED file should jointly cover the chromosome. 
+Use Python to create a BED file with each row being a 1 million base pair window of chromosome 1 of the human genome (hg19). The regions in the BED file should jointly cover the chromosome.
+
+Since the docker container is volume mounted you can edit `bioinf_task3.py` locally and run it locally and in the container as `python3 bioinfo_task3.py`.
 
 Hints:
 - BED files are 0-indexed. 

@@ -1,7 +1,5 @@
 # bioinf-dev-test
 
-There are three tasks to complete within the hour.  Use Google and ask questions if you get stuck!
-
 ## Initial setup
 
 Clone this repo:
